@@ -124,6 +124,12 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Document.cs" />
+    <Compile Include="Models\FileReadingData.cs" />
+    <Compile Include="Models\GroupConfiguration.cs" />
+    <Compile Include="Models\IFileOpeningData.cs" />
+    <Compile Include="Models\PrinterConfiguration.cs" />
+    <Compile Include="Models\ReportConfiguration.cs" />
+    <Compile Include="Models\ReportPrintData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
