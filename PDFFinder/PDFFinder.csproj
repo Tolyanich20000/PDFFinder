@@ -118,6 +118,10 @@
     <Compile Include="Migrations\201804180824025_Initial2.Designer.cs">
       <DependentUpon>201804180824025_Initial2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804210711199_Initial3.cs" />
+    <Compile Include="Migrations\201804210711199_Initial3.Designer.cs">
+      <DependentUpon>201804210711199_Initial3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Document.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -138,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804180824025_Initial2.resx">
       <DependentUpon>201804180824025_Initial2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804210711199_Initial3.resx">
+      <DependentUpon>201804210711199_Initial3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
