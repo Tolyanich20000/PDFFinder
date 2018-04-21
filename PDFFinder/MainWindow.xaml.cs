@@ -12,6 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using iTextSharp.text.pdf;
+using System.IO;
+using Spire.Pdf;
+using System.Diagnostics;
 
 namespace PDFFinder
 {
@@ -23,6 +27,18 @@ namespace PDFFinder
         public MainWindow()
         {
             InitializeComponent();
+            if (App.path != null && App.path != string.Empty)
+            {
+                try
+                {
+                    tmp.Text = new PdfReader(App.path).Info["Title"];
+                    Process.Start(App.path);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)

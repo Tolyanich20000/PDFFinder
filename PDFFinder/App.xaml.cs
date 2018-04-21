@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
+using iTextSharp.text.pdf;
 
 namespace PDFFinder
 {
@@ -13,5 +8,14 @@ namespace PDFFinder
     /// </summary>
     public partial class App : Application
     {
+        public static string path;
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            foreach (string arg in e.Args)
+            {
+                path = arg;
+            }
+            base.OnStartup(e);
+        }
     }
 }
