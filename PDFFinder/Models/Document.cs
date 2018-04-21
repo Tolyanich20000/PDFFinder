@@ -117,7 +117,7 @@ namespace PDFFinder.Models
         {
             HasKey(e => e.ReportId);
             Property(e => e.ReportName).HasMaxLength(50).IsRequired();
-            Ignore(e => e.GroupName);
+            Property(e => e.GroupName).HasMaxLength(50).IsOptional();
             Property(e => e.PrinterName).HasMaxLength(50).IsOptional();
             Property(e => e.PrinterName).HasMaxLength(50).IsOptional();
             Property(e => e.Duplex).IsOptional();
