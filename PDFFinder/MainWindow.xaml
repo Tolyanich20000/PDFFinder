@@ -4,13 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PDFFinder"
+        xmlns:resx="clr-namespace:PDFFinder.Properties"
         mc:Ignorable="d"
         Title="PDFFinder" Height="380" Width="480" MinHeight="380" MinWidth="250" MaxHeight="380">
     <StackPanel>
         <StackPanel Orientation="Horizontal">
-            <Label>Settings</Label>
-            <RadioButton VerticalAlignment="Center" Margin="10 0">Ua</RadioButton>
-            <RadioButton VerticalAlignment="Center">En</RadioButton>
+            <Label >Settings</Label>
+            <RadioButton VerticalAlignment="Center" Margin="10 0" Checked="RadioButton_Checked">Ua</RadioButton>
+            <RadioButton VerticalAlignment="Center" Checked="RadioButton_Checked_1">En</RadioButton>
         </StackPanel>
         <Separator/>
         <Grid Margin="10 5" Grid.Column="0" Grid.Row="0">
@@ -41,7 +42,7 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <Label Grid.Row="0" Grid.ColumnSpan="3">Printer settings</Label>
+            <Label  Content="{x:Static resx:Resources.printerSettings}"  Grid.Row="0" Grid.ColumnSpan="3"></Label>
             <Label Grid.Column="0" Grid.Row="1" Margin="0 5">Name</Label>
             <ComboBox Grid.Column="1" Grid.Row="1" Margin="0 5"></ComboBox>
             <Label Grid.Column="0" Grid.Row="2" Margin="0 5">Format</Label>
