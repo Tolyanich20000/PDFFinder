@@ -24,10 +24,6 @@ namespace PDFFinder.Models
     public class Document : INotifyPropertyChanged
     {
         private string _reportName;
-        private string _groupName;
-        private string _printerName;
-        private bool _duplex;
-        private PaperFormat _paperFormat;
 
         public int ReportId { get; set; }
 
@@ -44,61 +40,22 @@ namespace PDFFinder.Models
             }
         }
 
-        public string GroupName
+        public DateTime? LastViewDateTime { get; set; }
+
+        public DateTime? LastPrintDateTime { get; set; }
+
+        public int? Views { get; set; }
+
+        public int? Prints { get; set; }
+
+        public int? GroupId { get; set; }
+
+        public Group Group { get; set; }
+
+        public Document()
         {
-            get { return _groupName; }
-            set
-            {
-                if (_groupName != value)
-                {
-                    _groupName = value;
-                    NotifyPropertyChanged("GroupName");
-                }
-            }
+            Group = new Group();
         }
-
-        public string PrinterName
-        {
-            get { return _printerName; }
-            set
-            {
-                if (_printerName != value)
-                {
-                    _printerName = value;
-                    NotifyPropertyChanged("PrinterName");
-                }
-            }
-        }
-
-        public bool Duplex
-        {
-            get { return _duplex; }
-            set
-            {
-                if (_duplex != value)
-                {
-                    _duplex = value;
-                    NotifyPropertyChanged("Duplex");
-                }
-            }
-        }
-
-        public PaperFormat PaperFormat
-        {
-            get { return _paperFormat; }
-            set
-            {
-                if (_paperFormat != value)
-                {
-                    _paperFormat = value;
-                    NotifyPropertyChanged("PaperFormat");
-                }
-            }
-        }
-
-        public int Views { get; set; }
-
-        public int Prints { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged(string prop = "")
@@ -116,12 +73,9 @@ namespace PDFFinder.Models
         public DocumentConfiguration()
         {
             HasKey(e => e.ReportId);
-            Property(e => e.ReportName).HasMaxLength(50).IsRequired();
-            Property(e => e.GroupName).HasMaxLength(50).IsOptional();
-            Property(e => e.PrinterName).HasMaxLength(50).IsOptional();
-            Property(e => e.PrinterName).HasMaxLength(50).IsOptional();
-            Property(e => e.Duplex).IsOptional();
-            Property(e => e.PaperFormat).IsOptional();
+            Property(e => e.ReportName).HasMaxLength(100).IsRequired();
+            Property(e => e.LastViewDateTime).IsOptional();
+            Property(e => e.LastPrintDateTime).IsOptional();
             Property(e => e.Views).IsOptional();
             Property(e => e.Prints).IsOptional();
         }
