@@ -14,6 +14,7 @@ namespace PDFFinder.DataBaseContext
     {
         private PDFFinderContext _finderContext = new PDFFinderContext();
         private DocumentRepository _documentRepository;
+        private GroupRepository _groupRepository;
 
         public DocumentRepository DocumentRepository
         {
@@ -24,6 +25,18 @@ namespace PDFFinder.DataBaseContext
                     _documentRepository = new DocumentRepository(_finderContext);
                 }
                 return _documentRepository;
+            }
+        }
+
+        public GroupRepository GroupRepository
+        {
+            get
+            {
+                if (_groupRepository == null)
+                {
+                    _groupRepository = new GroupRepository(_finderContext);
+                }
+                return _groupRepository;
             }
         }
 

@@ -102,6 +102,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DataBaseContext\DocumentRepository.cs" />
+    <Compile Include="DataBaseContext\GroupRepository.cs" />
     <Compile Include="DataBaseContext\IRepository.cs" />
     <Compile Include="DataBaseContext\PDFFinderContext.cs" />
     <Compile Include="DataBaseContext\UnitOfWork.cs" />
@@ -123,8 +124,17 @@
     <Compile Include="Migrations\201804210711199_Initial3.Designer.cs">
       <DependentUpon>201804210711199_Initial3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804221252460_Initial4.cs" />
+    <Compile Include="Migrations\201804221252460_Initial4.Designer.cs">
+      <DependentUpon>201804221252460_Initial4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804221321412_Initial5.cs" />
+    <Compile Include="Migrations\201804221321412_Initial5.Designer.cs">
+      <DependentUpon>201804221321412_Initial5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Document.cs" />
+    <Compile Include="Models\Group.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -155,6 +165,12 @@
     <EmbeddedResource Include="Properties\Resources.uk-UA.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.uk-UA.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804221252460_Initial4.resx">
+      <DependentUpon>201804221252460_Initial4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804221321412_Initial5.resx">
+      <DependentUpon>201804221321412_Initial5.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

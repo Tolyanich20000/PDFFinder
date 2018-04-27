@@ -23,8 +23,10 @@ namespace PDFFinder.DataBaseContext
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new DocumentConfiguration());
+            modelBuilder.Configurations.Add(new GroupConfiguration());
         }
 
         public DbSet<Document> Documents { get; set; }
+        public DbSet<Group> Groups { get; set; }
     }
 }
