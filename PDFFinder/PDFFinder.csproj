@@ -132,6 +132,14 @@
     <Compile Include="Migrations\201804221321412_Initial5.Designer.cs">
       <DependentUpon>201804221321412_Initial5.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804260951094_Initial6.cs" />
+    <Compile Include="Migrations\201804260951094_Initial6.Designer.cs">
+      <DependentUpon>201804260951094_Initial6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804271554592_Initial7.cs" />
+    <Compile Include="Migrations\201804271554592_Initial7.Designer.cs">
+      <DependentUpon>201804271554592_Initial7.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Document.cs" />
     <Compile Include="Models\Group.cs" />
@@ -171,6 +179,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804221321412_Initial5.resx">
       <DependentUpon>201804221321412_Initial5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804260951094_Initial6.resx">
+      <DependentUpon>201804260951094_Initial6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804271554592_Initial7.resx">
+      <DependentUpon>201804271554592_Initial7.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
