@@ -24,6 +24,9 @@ namespace PDFFinder.Models
     public class Document : INotifyPropertyChanged
     {
         private string _reportName;
+        private string _printerName;
+        private bool? _duplex;
+        private PaperFormat? _paperFormat;
 
         public int ReportId { get; set; }
 
@@ -36,6 +39,45 @@ namespace PDFFinder.Models
                 {
                     _reportName = value;
                     NotifyPropertyChanged("ReportName");
+                }
+            }
+        }
+
+        public string PrinterName
+        {
+            get { return _printerName; }
+            set
+            {
+                if (_printerName != value)
+                {
+                    _printerName = value;
+                    NotifyPropertyChanged("PrinterName");
+                }
+            }
+        }
+
+        public bool? Duplex
+        {
+            get { return _duplex; }
+            set
+            {
+                if (_duplex != value)
+                {
+                    _duplex = value;
+                    NotifyPropertyChanged("Duplex");
+                }
+            }
+        }
+
+        public PaperFormat? PaperFormat
+        {
+            get { return _paperFormat; }
+            set
+            {
+                if (_paperFormat != value)
+                {
+                    _paperFormat = value;
+                    NotifyPropertyChanged("PaperFormat");
                 }
             }
         }
@@ -74,6 +116,9 @@ namespace PDFFinder.Models
         {
             HasKey(e => e.ReportId);
             Property(e => e.ReportName).HasMaxLength(100).IsRequired();
+            Ignore(e => e.PrinterName);
+            Property(e => e.Duplex).IsOptional();
+            Property(e => e.PaperFormat).IsOptional();
             Property(e => e.LastViewDateTime).IsOptional();
             Property(e => e.LastPrintDateTime).IsOptional();
             Property(e => e.Views).IsOptional();
