@@ -17,6 +17,7 @@ using System.IO;
 using Spire.Pdf;
 using System.Diagnostics;
 
+
 namespace PDFFinder
 {
     /// <summary>
@@ -32,13 +33,20 @@ namespace PDFFinder
                 try
                 {
                     tmp.Text = new PdfReader(App.path).Info["Title"];
-                    Process.Start(App.path);
+                    //Process.Start("explorer.exe", App.path);
+                    ShowOpenWithDialog(App.path);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
-            }
+            }         
+        }
+        public static void ShowOpenWithDialog(string path)
+        {
+            var args = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.System), "shell32.dll");
+            args += ",OpenAs_RunDLL " + path;
+            Process.Start("rundll32.exe", args);
         }
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)

@@ -7,11 +7,17 @@ using iTextSharp.text.pdf;
 
 namespace PDFFinder.ViewModel
 {
-    class MainWindowViewModel
+    public class MainWindowViewModel
     {
+
+
         public MainWindowViewModel()
         {
+            var file = new PdfReader(App.path);
+            if (file.Info["Title"] != string.Empty && file.Info["Title"] != null)
+            {
 
+            }
         }
     }
 }

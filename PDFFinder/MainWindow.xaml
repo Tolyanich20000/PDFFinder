@@ -11,7 +11,7 @@
         <StackPanel Orientation="Horizontal">
             <Label >Settings</Label>
             <RadioButton VerticalAlignment="Center" Margin="10 0" Checked="RadioButton_Checked">Ua</RadioButton>
-            <RadioButton VerticalAlignment="Center" Checked="RadioButton_Checked_1">En</RadioButton>
+            <RadioButton VerticalAlignment="Center" IsChecked="True" Checked="RadioButton_Checked_1">En</RadioButton>
         </StackPanel>
         <Separator/>
         <Grid Margin="10 5" Grid.Column="0" Grid.Row="0">
