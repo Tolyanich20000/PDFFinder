@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:PDFFinder"
         xmlns:resx="clr-namespace:PDFFinder.Properties"
         mc:Ignorable="d"
-        Title="PDFFinder" Height="450" Width="480" MinHeight="450" MinWidth="250" MaxHeight="450">
-    <StackPanel >
+        Title="PDFFinder" Height="380" Width="480" MinHeight="380" MinWidth="250" MaxHeight="380">
+    <StackPanel>
         <StackPanel Orientation="Horizontal">
 
             <RadioButton VerticalAlignment="Center" Margin="10 0" Checked="RadioButton_Checked" IsChecked="True" >Ua</RadioButton>
