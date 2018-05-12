@@ -12,6 +12,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Resources;
+using System.Globalization;
+using System.Threading;
+
+
 
 namespace PDFFinder
 {
@@ -23,16 +28,22 @@ namespace PDFFinder
         public MainWindow()
         {
             InitializeComponent();
+
+            
+           
         }
+
+      
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
         {
-
+          
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("uk-UA");
         }
 
         private void RadioButton_Checked_1(object sender, RoutedEventArgs e)
         {
-
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en");
         }
     }
 }
