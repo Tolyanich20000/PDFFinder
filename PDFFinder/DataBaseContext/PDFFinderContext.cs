@@ -24,9 +24,11 @@ namespace PDFFinder.DataBaseContext
         {
             modelBuilder.Configurations.Add(new DocumentConfiguration());
             modelBuilder.Configurations.Add(new GroupConfiguration());
+            modelBuilder.Configurations.Add(new PaperFormatConfiguration());
         }
 
         public DbSet<Document> Documents { get; set; }
         public DbSet<Group> Groups { get; set; }
+        public DbSet<PaperFormat> PaperFormats { get; set; }
     }
 }

@@ -27,18 +27,6 @@ namespace PDFFinder
         public MainWindow()
         {
             InitializeComponent();
-            if (App.path != null && App.path != string.Empty)
-            {
-                try
-                {
-                    tmp.Text = new PdfReader(App.path).Info["Title"];
-                    Process.Start(App.path);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
         }
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)

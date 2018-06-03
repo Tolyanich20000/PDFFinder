@@ -5,8 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PDFFinder"
         xmlns:resx="clr-namespace:PDFFinder.Properties"
+        xmlns:viewModel="clr-namespace:PDFFinder.ViewModel"
         mc:Ignorable="d"
         Title="PDFFinder" Height="380" Width="480" MinHeight="380" MinWidth="250" MaxHeight="380">
+    <Window.Resources>
+        <viewModel:MainWindowViewModel x:Key="ViewModel"/>
+    </Window.Resources>
     <StackPanel>
         <StackPanel Orientation="Horizontal">
             <Label >Settings</Label>
@@ -26,7 +30,8 @@
             </Grid.RowDefinitions>
             <Label Grid.Row="0" Grid.ColumnSpan="3">Default PDF program</Label>
             <Label Grid.Column="0" Grid.Row="1" Margin="0 5">Name</Label>
-            <TextBox Name="tmp" Grid.Column="1" Grid.Row="1" Margin="0 5 10 5"></TextBox>
+            <TextBox Name="tmp" Grid.Column="1" Grid.Row="1" Margin="0 5 10 5"
+                     Text="{Binding Source={StaticResource ViewModel}, Path=Document.ReportName, UpdateSourceTrigger=PropertyChanged}"/>
             <Button Grid.Column="2" Grid.Row="1" Padding="10 0" Margin="0 5">...</Button>
         </Grid>
         <Separator/>

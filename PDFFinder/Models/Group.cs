@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity.ModelConfiguration;
 using System.ComponentModel;
+using System.Drawing;
 
 namespace PDFFinder.Models
 {
@@ -18,7 +19,9 @@ namespace PDFFinder.Models
 
         public bool? Duplex { get; set; }
 
-        public PaperFormat? PaperFormat { get; set; }
+        public int? PaperFormatId { get; set; }
+
+        public PaperFormat PaperFormat { get; set; }
 
         public ICollection<Document> Documents { get; set; }
 
@@ -36,7 +39,6 @@ namespace PDFFinder.Models
             Property(e => e.GroupName).HasMaxLength(100).IsOptional();
             Ignore(e => e.PrinterName);
             Property(e => e.Duplex).IsOptional();
-            Property(e => e.PaperFormat).IsOptional();
             HasMany(e => e.Documents).WithOptional(e => e.Group).HasForeignKey(e => e.GroupId);
         }
     }

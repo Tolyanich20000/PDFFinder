@@ -92,6 +92,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DataBaseContext\PaperFormatRepository.cs" />
+    <Compile Include="Migrations\201806030956469_Initial8.cs" />
+    <Compile Include="Migrations\201806030956469_Initial8.Designer.cs">
+      <DependentUpon>201806030956469_Initial8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PaperFormat.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -169,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804210711199_Initial3.resx">
       <DependentUpon>201804210711199_Initial3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806030956469_Initial8.resx">
+      <DependentUpon>201806030956469_Initial8.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.uk-UA.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
