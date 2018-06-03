@@ -5,19 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity.ModelConfiguration;
 using System.ComponentModel;
+using Spire.Pdf;
+using System.Drawing;
 
 namespace PDFFinder.Models
 {
-    /// <summary>
-    /// Paper format enum
-    /// </summary>
-    public enum PaperFormat
-    {
-        A4,
-        A5,
-        Letter
-    }
-
     /// <summary>
     /// Document entity
     /// </summary>
@@ -26,7 +18,7 @@ namespace PDFFinder.Models
         private string _reportName;
         private string _printerName;
         private bool? _duplex;
-        private PaperFormat? _paperFormat;
+        private PaperFormat _paperFormat;
 
         public int ReportId { get; set; }
 
@@ -38,7 +30,7 @@ namespace PDFFinder.Models
                 if (_reportName != value)
                 {
                     _reportName = value;
-                    NotifyPropertyChanged("ReportName");
+                    OnPropertyChanged("ReportName");
                 }
             }
         }
@@ -51,7 +43,7 @@ namespace PDFFinder.Models
                 if (_printerName != value)
                 {
                     _printerName = value;
-                    NotifyPropertyChanged("PrinterName");
+                    OnPropertyChanged("PrinterName");
                 }
             }
         }
@@ -64,20 +56,7 @@ namespace PDFFinder.Models
                 if (_duplex != value)
                 {
                     _duplex = value;
-                    NotifyPropertyChanged("Duplex");
-                }
-            }
-        }
-
-        public PaperFormat? PaperFormat
-        {
-            get { return _paperFormat; }
-            set
-            {
-                if (_paperFormat != value)
-                {
-                    _paperFormat = value;
-                    NotifyPropertyChanged("PaperFormat");
+                    OnPropertyChanged("Duplex");
                 }
             }
         }
@@ -90,6 +69,21 @@ namespace PDFFinder.Models
 
         public int? Prints { get; set; }
 
+        public int? PaperFormatId { get; set; }
+
+        public PaperFormat PaperFormat
+        {
+            get { return _paperFormat; }
+            set
+            {
+                if (_paperFormat != value)
+                {
+                    _paperFormat = value;
+                    OnPropertyChanged("PaperFormat");
+                }
+            }
+        }
+
         public int? GroupId { get; set; }
 
         public Group Group { get; set; }
@@ -100,12 +94,11 @@ namespace PDFFinder.Models
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-        private void NotifyPropertyChanged(string prop = "")
+        private void OnPropertyChanged(string prop = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         } 
     }
-
 
     /// <summary>
     /// Configuration for Document entity
@@ -118,7 +111,6 @@ namespace PDFFinder.Models
             Property(e => e.ReportName).HasMaxLength(100).IsRequired();
             Ignore(e => e.PrinterName);
             Property(e => e.Duplex).IsOptional();
-            Property(e => e.PaperFormat).IsOptional();
             Property(e => e.LastViewDateTime).IsOptional();
             Property(e => e.LastPrintDateTime).IsOptional();
             Property(e => e.Views).IsOptional();
