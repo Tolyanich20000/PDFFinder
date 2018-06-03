@@ -92,6 +92,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\PageSizeRepository.cs" />
+    <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="Views\ReportWindow.xaml.cs">
+      <DependentUpon>ReportWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -101,6 +106,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DataBaseContext\DocumentRepository.cs" />
+    <Compile Include="DataBaseContext\GroupRepository.cs" />
     <Compile Include="DataBaseContext\IRepository.cs" />
     <Compile Include="DataBaseContext\PDFFinderContext.cs" />
     <Compile Include="DataBaseContext\UnitOfWork.cs" />
@@ -108,6 +114,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\ReportWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Migrations\201804180758136_Initial.cs" />
@@ -122,16 +132,32 @@
     <Compile Include="Migrations\201804210711199_Initial3.Designer.cs">
       <DependentUpon>201804210711199_Initial3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804221252460_Initial4.cs" />
+    <Compile Include="Migrations\201804221252460_Initial4.Designer.cs">
+      <DependentUpon>201804221252460_Initial4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804221321412_Initial5.cs" />
+    <Compile Include="Migrations\201804221321412_Initial5.Designer.cs">
+      <DependentUpon>201804221321412_Initial5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804260951094_Initial6.cs" />
+    <Compile Include="Migrations\201804260951094_Initial6.Designer.cs">
+      <DependentUpon>201804260951094_Initial6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804271554592_Initial7.cs" />
+    <Compile Include="Migrations\201804271554592_Initial7.Designer.cs">
+      <DependentUpon>201804271554592_Initial7.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Document.cs" />
-    <Compile Include="Models\FileReadingData.cs" />
-    <Compile Include="Models\GroupConfiguration.cs" />
-    <Compile Include="Models\IFileOpeningData.cs" />
-    <Compile Include="Models\PrinterConfiguration.cs" />
-    <Compile Include="Models\ReportConfiguration.cs" />
-    <Compile Include="Models\ReportPrintData.cs" />
+    <Compile Include="Models\Group.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.uk-UA.Designer.cs">
+      <DependentUpon>Resources.uk-UA.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -152,8 +178,24 @@
     <EmbeddedResource Include="Migrations\201804210711199_Initial3.resx">
       <DependentUpon>201804210711199_Initial3.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.uk-UA.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.uk-UA.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804221252460_Initial4.resx">
+      <DependentUpon>201804221252460_Initial4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804221321412_Initial5.resx">
+      <DependentUpon>201804221321412_Initial5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804260951094_Initial6.resx">
+      <DependentUpon>201804260951094_Initial6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804271554592_Initial7.resx">
+      <DependentUpon>201804271554592_Initial7.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />

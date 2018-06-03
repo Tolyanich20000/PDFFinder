@@ -117,31 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="apply" xml:space="preserve">
-    <value>Apply</value>
+  <data name="Target" xml:space="preserve">
+    <value>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</value>
   </data>
-  <data name="duplex" xml:space="preserve">
-    <value>Duplex</value>
-  </data>
-  <data name="fileName" xml:space="preserve">
-    <value>Name</value>
-  </data>
-  <data name="labelSettings" xml:space="preserve">
-    <value>Settings</value>
-  </data>
-  <data name="paperFormat" xml:space="preserve">
-    <value>Format</value>
-  </data>
-  <data name="paperSource" xml:space="preserve">
-    <value>Source</value>
-  </data>
-  <data name="printerName" xml:space="preserve">
-    <value>Name</value>
-  </data>
-  <data name="printerSettings" xml:space="preserve">
-    <value>Printer settings</value>
-  </data>
-  <data name="programName" xml:space="preserve">
-    <value>Default PDF program</value>
+  <data name="DefaultSchema" xml:space="preserve">
+    <value>dbo</value>
   </data>
 </root>

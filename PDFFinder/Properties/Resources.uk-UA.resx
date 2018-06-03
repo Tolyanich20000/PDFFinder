@@ -118,30 +118,30 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="apply" xml:space="preserve">
-    <value>Apply</value>
+    <value>Підтвердити</value>
   </data>
   <data name="duplex" xml:space="preserve">
-    <value>Duplex</value>
+    <value>Дуплекс</value>
   </data>
   <data name="fileName" xml:space="preserve">
-    <value>Name</value>
+    <value>Ім`я</value>
   </data>
   <data name="labelSettings" xml:space="preserve">
-    <value>Settings</value>
+    <value>Налаштування</value>
   </data>
   <data name="paperFormat" xml:space="preserve">
-    <value>Format</value>
+    <value>Формат Друку</value>
   </data>
   <data name="paperSource" xml:space="preserve">
-    <value>Source</value>
+    <value>Джерело Паперу</value>
   </data>
   <data name="printerName" xml:space="preserve">
-    <value>Name</value>
+    <value>Ім`я Принтеру</value>
   </data>
   <data name="printerSettings" xml:space="preserve">
-    <value>Printer settings</value>
+    <value>Налаштування Принтеру</value>
   </data>
   <data name="programName" xml:space="preserve">
-    <value>Default PDF program</value>
+    <value>Стандартная пограмма для ПДФ файлов</value>
   </data>
 </root>
