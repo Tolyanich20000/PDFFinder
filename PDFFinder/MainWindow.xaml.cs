@@ -16,6 +16,12 @@ using iTextSharp.text.pdf;
 using System.IO;
 using Spire.Pdf;
 using System.Diagnostics;
+using System.Resources;
+using System.Globalization;
+using System.Threading;
+
+
+
 
 
 namespace PDFFinder
