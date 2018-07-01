@@ -4,6 +4,8 @@ namespace PDFFinder.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using System.Reflection;
+    using iTextSharp.text;
 
     internal sealed class Configuration : DbMigrationsConfiguration<PDFFinder.DataBaseContext.PDFFinderContext>
     {

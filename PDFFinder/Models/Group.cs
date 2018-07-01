@@ -5,12 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity.ModelConfiguration;
 using System.ComponentModel;
-using System.Drawing;
+using iTextSharp.text;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PDFFinder.Models
 {
     public class Group
     {
+        private Rectangle _pageSize;
+
         public int Id { get; set; }
 
         public string GroupName { get; set; }
@@ -22,6 +25,19 @@ namespace PDFFinder.Models
         public int? PaperFormatId { get; set; }
 
         public PaperFormat PaperFormat { get; set; }
+
+        [NotMapped]
+        public Rectangle PageSize
+        {
+            get { return _pageSize; }
+            private set
+            {
+                if (_pageSize != value)
+                {
+                    _pageSize = iTextSharp.text.PageSize.GetRectangle(PaperFormat.Name);
+                }
+            }
+        }
 
         public ICollection<Document> Documents { get; set; }
 

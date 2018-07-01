@@ -7,13 +7,13 @@
         xmlns:resx="clr-namespace:PDFFinder.Properties"
         xmlns:viewModel="clr-namespace:PDFFinder.ViewModel"
         mc:Ignorable="d"
-        Title="PDFFinder" Height="380" Width="480" MinHeight="380" MinWidth="250" MaxHeight="380">
+        Title="PDFFinder" Height="330" Width="480" MinHeight="330" MinWidth="480" MaxHeight="330">
     <Window.Resources>
         <viewModel:MainWindowViewModel x:Key="ViewModel"/>
     </Window.Resources>
     <StackPanel>
         <StackPanel Orientation="Horizontal">
-            <Label >Settings</Label>
+            <Label>Settings</Label>
             <RadioButton VerticalAlignment="Center" Margin="10 0" Checked="RadioButton_Checked">Ua</RadioButton>
             <RadioButton VerticalAlignment="Center" Checked="RadioButton_Checked_1">En</RadioButton>
         </StackPanel>
@@ -32,7 +32,9 @@
             <Label Grid.Column="0" Grid.Row="1" Margin="0 5">Name</Label>
             <TextBox Name="tmp" Grid.Column="1" Grid.Row="1" Margin="0 5 10 5"
                      Text="{Binding Source={StaticResource ViewModel}, Path=Document.ReportName, UpdateSourceTrigger=PropertyChanged}"/>
-            <Button Grid.Column="2" Grid.Row="1" Padding="10 0" Margin="0 5">...</Button>
+            <Button Grid.Column="2" Grid.Row="1" 
+                    Padding="10 0" Margin="0 5"
+                    Command="{Binding Source={StaticResource ViewModel}, Path=Open}">...</Button>
         </Grid>
         <Separator/>
         <Grid Margin="10 5" Grid.Column="0" Grid.Row="2">
@@ -47,16 +49,17 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <Label  Content="{x:Static resx:Resources.printerSettings}"  Grid.Row="0" Grid.ColumnSpan="3"></Label>
+            <Label  Content=""  Grid.Row="0" Grid.ColumnSpan="3"></Label>
             <Label Grid.Column="0" Grid.Row="1" Margin="0 5">Name</Label>
             <ComboBox Grid.Column="1" Grid.Row="1" Margin="0 5"></ComboBox>
             <Label Grid.Column="0" Grid.Row="2" Margin="0 5">Format</Label>
             <ComboBox Grid.Column="1" Grid.Row="2" Margin="0 5"></ComboBox>
-            <Label Grid.Column="0" Grid.Row="3" Margin="0 5">Source</Label>
-            <ComboBox Grid.Column="1" Grid.Row="3" Margin="0 5"></ComboBox>
             <Label Grid.Column="0" Grid.Row="4" Margin="0 5">Duplex</Label>
             <CheckBox Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center"></CheckBox>
         </Grid>
-        <Button HorizontalAlignment="Right" Grid.Column="0" Grid.Row="4" Margin="10 0" Padding="10 5">Apply</Button>
+        <Button HorizontalAlignment="Right" 
+                Grid.Column="0" Grid.Row="4" 
+                Margin="10 0" Padding="10 5"
+                Command="{Binding Source={StaticResource ViewModel}, Path=Apply}">Apply</Button>
     </StackPanel>
 </Window>
