@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity.ModelConfiguration;
 using System.ComponentModel;
-using Spire.Pdf;
-using System.Drawing;
+using iTextSharp.text;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PDFFinder.Models
 {
@@ -20,6 +20,7 @@ namespace PDFFinder.Models
         private bool? _duplex;
         private PaperFormat _paperFormat;
         private Group _group;
+        private Rectangle _pageSize;
 
         public int ReportId { get; set; }
 
@@ -81,6 +82,20 @@ namespace PDFFinder.Models
                 {
                     _paperFormat = value;
                     OnPropertyChanged("PaperFormat");
+                }
+            }
+        }
+
+        [NotMapped]
+        public Rectangle PageSize
+        {
+            get { return _pageSize; }
+            private set
+            {
+                if (_pageSize != value)
+                {
+                    _pageSize = iTextSharp.text.PageSize.GetRectangle(_paperFormat.Name);
+                    OnPropertyChanged("PageSize");
                 }
             }
         }

@@ -15,14 +15,15 @@ namespace PDFFinder.ViewModel
     using DataBaseContext;
     using PDFFinder.Commands;
     using Microsoft.Win32;
+    using iTextSharp.text;
 
     public class MainWindowViewModel : INotifyPropertyChanged
     {
         private readonly UnitOfWork _unitOfWork = new UnitOfWork();
         private PdfReader _pdfReader;
-        private Document _document;
+        private Models.Document _document;
 
-        public Document Document
+        public Models.Document Document
         {
             get { return _document; }
             set
@@ -41,9 +42,13 @@ namespace PDFFinder.ViewModel
 
         public MainWindowViewModel()
         {
-            Document = new Document();
+            Document = new Models.Document();
             Apply = new DelegateCommand(ApplyMethod, ApplyPredicate);
             Open = new DelegateCommand(OpenDocumentMethod, (object param)=> { return true; });
+            if (!_unitOfWork.PaperFormatRepository.GetAll().Any())
+            {
+                FillPageSize();
+            }
             if (App.path != null && App.path != string.Empty)
             {
                 OpenDocument(App.path);
@@ -102,6 +107,20 @@ namespace PDFFinder.ViewModel
             {
                 OpenDocument(file.FileName);
             }
+        }
+
+        private void FillPageSize()
+        {
+            Type type = typeof(PageSize);
+            var list = type.GetFields();
+            foreach (var item in list)
+            {
+                _unitOfWork.PaperFormatRepository.Create(new PaperFormat()
+                {
+                    Name = item.Name
+                });
+            }
+            _unitOfWork.Save();
         }
     }
 }

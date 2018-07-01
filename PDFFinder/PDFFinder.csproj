@@ -98,6 +98,10 @@
     <Compile Include="Migrations\201806030956469_Initial8.Designer.cs">
       <DependentUpon>201806030956469_Initial8.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807011013277_Initial9.cs" />
+    <Compile Include="Migrations\201807011013277_Initial9.Designer.cs">
+      <DependentUpon>201807011013277_Initial9.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\PaperFormat.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Page Include="MainWindow.xaml">
@@ -179,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806030956469_Initial8.resx">
       <DependentUpon>201806030956469_Initial8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807011013277_Initial9.resx">
+      <DependentUpon>201807011013277_Initial9.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.uk-UA.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
