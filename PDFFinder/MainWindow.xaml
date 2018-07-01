@@ -13,14 +13,14 @@
     </Window.Resources>
     <StackPanel>
         <StackPanel Orientation="Horizontal">
-            <RadioButton VerticalAlignment="Center" Margin="10 0" Checked="RadioButton_Checked" IsChecked="True" >Ua</RadioButton>
-            <RadioButton    VerticalAlignment="Center" Checked="RadioButton_Checked_1" >En</RadioButton>
-            <Label Content="{x:Static resx:Resources.labelSettings}" Width="113"/>
+            <Label >Settings</Label>
+            <RadioButton VerticalAlignment="Center" Margin="10 0" Checked="RadioButton_Checked">Ua</RadioButton>
+            <RadioButton VerticalAlignment="Center" Checked="RadioButton_Checked_1">En</RadioButton>
         </StackPanel>
         <Separator/>
         <Grid Margin="10 5" Grid.Column="0" Grid.Row="0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="110"></ColumnDefinition>
+                <ColumnDefinition Width="50"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="35"></ColumnDefinition>
             </Grid.ColumnDefinitions>
@@ -37,7 +37,7 @@
         <Separator/>
         <Grid Margin="10 5" Grid.Column="0" Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="110"></ColumnDefinition>
+                <ColumnDefinition Width="50"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
@@ -48,15 +48,15 @@
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <Label  Content="{x:Static resx:Resources.printerSettings}"  Grid.Row="0" Grid.ColumnSpan="3"></Label>
-            <Label Content="{x:Static resx:Resources.printerName}" Grid.Column="0" Grid.Row="1" Margin="0 5"></Label>
+            <Label Grid.Column="0" Grid.Row="1" Margin="0 5">Name</Label>
             <ComboBox Grid.Column="1" Grid.Row="1" Margin="0 5"></ComboBox>
-            <Label Content="{x:Static resx:Resources.paperFormat}"  Grid.Column="0" Grid.Row="2" Margin="0 5"></Label>
+            <Label Grid.Column="0" Grid.Row="2" Margin="0 5">Format</Label>
             <ComboBox Grid.Column="1" Grid.Row="2" Margin="0 5"></ComboBox>
-            <Label Content="{x:Static resx:Resources.paperSource}" Grid.Column="0" Grid.Row="3" Margin="0 5"></Label>
+            <Label Grid.Column="0" Grid.Row="3" Margin="0 5">Source</Label>
             <ComboBox Grid.Column="1" Grid.Row="3" Margin="0 5"></ComboBox>
-            <Label Content="{x:Static resx:Resources.duplex}" Grid.Column="0" Grid.Row="4" Margin="0 5"></Label>
+            <Label Grid.Column="0" Grid.Row="4" Margin="0 5">Duplex</Label>
             <CheckBox Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center"></CheckBox>
         </Grid>
-        <Button Content="{x:Static resx:Resources.apply}" HorizontalAlignment="Right" Grid.Column="0" Grid.Row="4" Margin="10 0" Padding="10 5"></Button>
+        <Button HorizontalAlignment="Right" Grid.Column="0" Grid.Row="4" Margin="10 0" Padding="10 5">Apply</Button>
     </StackPanel>
 </Window>
