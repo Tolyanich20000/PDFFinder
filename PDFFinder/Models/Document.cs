@@ -19,6 +19,7 @@ namespace PDFFinder.Models
         private string _printerName;
         private bool? _duplex;
         private PaperFormat _paperFormat;
+        private Group _group;
 
         public int ReportId { get; set; }
 
@@ -86,7 +87,18 @@ namespace PDFFinder.Models
 
         public int? GroupId { get; set; }
 
-        public Group Group { get; set; }
+        public Group Group
+        {
+            get { return _group; }
+            set
+            {
+                if (_group != value)
+                {
+                    _group = value;
+                    OnPropertyChanged("Group");
+                }
+            }
+        }
 
         public Document()
         {

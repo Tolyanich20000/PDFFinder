@@ -13,22 +13,45 @@ namespace PDFFinder.ViewModel
 {
     using Models;
     using DataBaseContext;
+    using PDFFinder.Commands;
+    using Microsoft.Win32;
 
     public class MainWindowViewModel : INotifyPropertyChanged
     {
-        //private readonly UnitOfWork _unitOfWork = new UnitOfWork();
+        private readonly UnitOfWork _unitOfWork = new UnitOfWork();
         private PdfReader _pdfReader;
+        private Document _document;
 
-        public Document Document { get; set; }
+        public Document Document
+        {
+            get { return _document; }
+            set
+            {
+                if (_document != value)
+                {
+                    _document = value;
+                    OnPropertyChanged("Document");
+                }
+            }
+        }
+
+        public DelegateCommand Apply { get; set; }
+
+        public DelegateCommand Open { get; set; }
 
         public MainWindowViewModel()
         {
             Document = new Document();
-            OpenDocument();
+            Apply = new DelegateCommand(ApplyMethod, ApplyPredicate);
+            Open = new DelegateCommand(OpenDocumentMethod, (object param)=> { return true; });
+            if (App.path != null && App.path != string.Empty)
+            {
+                OpenDocument(App.path);
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-        private void NotifyPropertyChanged(string prop = "")
+        private void OnPropertyChanged(string prop = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
@@ -40,28 +63,44 @@ namespace PDFFinder.ViewModel
             Process.Start("rundll32.exe", args);
         }
 
-        private void OpenDocument()
+        private void OpenDocument(string file)
         {
             try
             {
-                if (App.path != null && App.path != string.Empty)
+                _pdfReader = new PdfReader(file);
+                var doc = _unitOfWork.DocumentRepository.Get(_pdfReader.Info["Title"]);
+                if (doc != null)
                 {
-                    _pdfReader = new PdfReader(App.path);
-                    //var doc = _unitOfWork.DocumentRepository.Get(_pdfReader.Info["Title"]);
-                    //if (doc != null)
-                    //{
-                    //    Document = doc;
-                    //}
-                    //else
-                    //{
-                        Document.ReportName = _pdfReader.Info["Title"];
-                        ShowOpenWithDialog(App.path);
-                    //}
+                    Document = doc;
+                }
+                else
+                {
+                    Document.ReportName = _pdfReader.Info["Title"];
+                    ShowOpenWithDialog(App.path);
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void ApplyMethod(object param)
+        {
+            MessageBox.Show("do something");
+        }
+
+        private bool ApplyPredicate(object param)
+        {
+            return Document != null ? true : false;
+        }
+
+        private void OpenDocumentMethod(object param)
+        {
+            var file = new OpenFileDialog();
+            if (file.ShowDialog() == true) 
+            {
+                OpenDocument(file.FileName);
             }
         }
     }
