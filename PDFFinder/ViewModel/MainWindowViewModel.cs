@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Management;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -36,13 +37,18 @@ namespace PDFFinder.ViewModel
             }
         }
 
+        public BindingList<string> Printers { get; set; }
+
+        public BindingList<PaperFormat> Formats { get; set; }
+
         public DelegateCommand Apply { get; set; }
 
         public DelegateCommand Open { get; set; }
 
         public MainWindowViewModel()
         {
-            Document = new Models.Document();
+            GetPrinters();
+            GetPaperFormats();
             Apply = new DelegateCommand(ApplyMethod, ApplyPredicate);
             Open = new DelegateCommand(OpenDocumentMethod, (object param)=> { return true; });
             if (!_unitOfWork.PaperFormatRepository.GetAll().Any())
@@ -51,6 +57,7 @@ namespace PDFFinder.ViewModel
             }
             if (App.path != null && App.path != string.Empty)
             {
+                Document = new Models.Document();
                 OpenDocument(App.path);
             }
         }
@@ -82,6 +89,8 @@ namespace PDFFinder.ViewModel
                 {
                     Document.ReportName = _pdfReader.Info["Title"];
                     ShowOpenWithDialog(App.path);
+                    Document.LastViewDateTime = DateTime.Now;
+                    Document.Views++;
                 }
             }
             catch (Exception ex)
@@ -93,6 +102,8 @@ namespace PDFFinder.ViewModel
         private void ApplyMethod(object param)
         {
             MessageBox.Show("do something");
+            Document.LastPrintDateTime = DateTime.Now;
+            Document.Prints++;
         }
 
         private bool ApplyPredicate(object param)
@@ -121,6 +132,26 @@ namespace PDFFinder.ViewModel
                 });
             }
             _unitOfWork.Save();
+        }
+
+        private void GetPrinters()
+        {
+            Printers = new BindingList<string>();
+            var printers = new ManagementObjectSearcher("SELECT * from Win32_Printer");
+            foreach (var item in printers.Get())
+            {
+                Printers.Add(item.GetPropertyValue("Name").ToString());
+            }
+        }
+
+        private void GetPaperFormats()
+        {
+            Formats = new BindingList<PaperFormat>();
+            var formats = _unitOfWork.PaperFormatRepository.GetAll();
+            foreach (var item in formats)
+            {
+                Formats.Add(item);
+            }
         }
     }
 }

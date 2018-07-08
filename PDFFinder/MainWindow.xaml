@@ -50,12 +50,25 @@
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <Label  Content=""  Grid.Row="0" Grid.ColumnSpan="3"></Label>
-            <Label Grid.Column="0" Grid.Row="1" Margin="0 5">Name</Label>
-            <ComboBox Grid.Column="1" Grid.Row="1" Margin="0 5"></ComboBox>
+            <Label Grid.Column="0" Grid.Row="1" Margin="0 5">Printer</Label>
+            <ComboBox Grid.Column="1" Grid.Row="1" Margin="0 5"
+                      ItemsSource="{Binding Source={StaticResource ViewModel}, Path=Printers, UpdateSourceTrigger=PropertyChanged}"
+                      SelectedItem="{Binding Source={StaticResource ViewModel}, Path=Document.PrinterName, UpdateSourceTrigger=PropertyChanged}">
+            </ComboBox>
             <Label Grid.Column="0" Grid.Row="2" Margin="0 5">Format</Label>
-            <ComboBox Grid.Column="1" Grid.Row="2" Margin="0 5"></ComboBox>
+            <ComboBox Grid.Column="1" Grid.Row="2" Margin="0 5"
+                      ItemsSource="{Binding Source={StaticResource ViewModel}, Path=Formats, UpdateSourceTrigger=PropertyChanged}"
+                      SelectedItem="{Binding Source={StaticResource ViewModel}, Path=Document.PaperFormat, UpdateSourceTrigger=PropertyChanged}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
             <Label Grid.Column="0" Grid.Row="4" Margin="0 5">Duplex</Label>
-            <CheckBox Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center"></CheckBox>
+            <CheckBox Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center"
+                      IsChecked="{Binding Source={StaticResource ViewModel}, Path=Document.Duplex, UpdateSourceTrigger=PropertyChanged}">
+            </CheckBox>
         </Grid>
         <Button HorizontalAlignment="Right" 
                 Grid.Column="0" Grid.Row="4" 

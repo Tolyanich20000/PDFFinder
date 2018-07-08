@@ -115,11 +115,6 @@ namespace PDFFinder.Models
             }
         }
 
-        public Document()
-        {
-            Group = new Group();
-        }
-
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string prop = "")
         {
