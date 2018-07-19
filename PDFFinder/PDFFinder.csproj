@@ -95,6 +95,7 @@
     </ApplicationDefinition>
     <Compile Include="Commands\DelegateCommand.cs" />
     <Compile Include="DataBaseContext\PaperFormatRepository.cs" />
+    <Compile Include="Localiztion\Words.cs" />
     <Compile Include="Migrations\201806030956469_Initial8.cs" />
     <Compile Include="Migrations\201806030956469_Initial8.Designer.cs">
       <DependentUpon>201806030956469_Initial8.cs</DependentUpon>
