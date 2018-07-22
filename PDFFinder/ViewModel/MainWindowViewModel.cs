@@ -47,7 +47,7 @@ using TallComponents.PDF.Rasterizer.Configuration;
         public MainWindowViewModel()
         {
             Document = new Models.Document();
-            Apply = new DelegateCommand(ApplyMethod, ApplyPredicate);
+            Apply = new DelegateCommand(ApplyMethod, (object param) => { return true; });
             Open = new DelegateCommand(OpenDocumentMethod, (object param)=> { return true; });
             if (!_unitOfWork.PaperFormatRepository.GetAll().Any())
             {
@@ -100,7 +100,7 @@ using TallComponents.PDF.Rasterizer.Configuration;
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
                 DefaultExt = ".pdf",
-                Filter = "PDF files (*.pdf)|*.pdf|All files (*.*)|*.*"
+                Filter = "PDF files (*.pdf)|*.pdf"
             };
             bool? fileOpenResult = openFileDialog.ShowDialog();
             if (fileOpenResult != true)
@@ -129,10 +129,7 @@ using TallComponents.PDF.Rasterizer.Configuration;
             printDialog.PrintDocument(fixedDocument.DocumentPaginator, "Print");
         }
 
-        private bool ApplyPredicate(object param)
-        {
-            return Document != null ? true : false;
-        }
+       
 
         private void OpenDocumentMethod(object param)
         {
