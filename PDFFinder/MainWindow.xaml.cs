@@ -16,6 +16,7 @@ using iTextSharp.text.pdf;
 using System.IO;
 using Spire.Pdf;
 using System.Diagnostics;
+using PDFFinder.Localiztion;
 
 namespace PDFFinder
 {
@@ -24,8 +25,13 @@ namespace PDFFinder
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        
+
         public MainWindow()
         {
+            
+
             InitializeComponent();
         }
     }

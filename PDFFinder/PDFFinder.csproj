@@ -103,6 +103,9 @@
     <Compile Include="Migrations\201807011013277_Initial9.Designer.cs">
       <DependentUpon>201807011013277_Initial9.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\LocalizationModel.cs" />
+    <Compile Include="Models\Localization\English.cs" />
+    <Compile Include="Models\Localization\Ukraine.cs" />
     <Compile Include="Models\PaperFormat.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Page Include="MainWindow.xaml">
