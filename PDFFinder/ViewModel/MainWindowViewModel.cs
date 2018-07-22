@@ -61,12 +61,11 @@ namespace PDFFinder.ViewModel
         public DelegateCommand Open { get; set; }
 
         public DelegateCommand Eng { get; set; }
+
         public DelegateCommand Ua { get; set; }
 
         public MainWindowViewModel()
         {
-
-
             LocalizationModel = new LocalizationModel();
             EnableEnglish(null);
             GetPrinters();
@@ -178,6 +177,7 @@ namespace PDFFinder.ViewModel
                 Formats.Add(item);
             }
         }
+
         public void EnableEnglish(object param)
         {
             LocalizationModel.Apply = English.Apply;
@@ -188,9 +188,8 @@ namespace PDFFinder.ViewModel
             LocalizationModel.PrinterName = English.PrinterName;
             LocalizationModel.ProgramName = English.ProgramName;
             LocalizationModel.PaperFormat = English.PaperFromat;
-
-
         }
+
         public void EnableUkrain(object param)
         {
             LocalizationModel.Apply = Ukraine.Apply;
@@ -201,9 +200,6 @@ namespace PDFFinder.ViewModel
             LocalizationModel.PrinterName = Ukraine.PrinterName;
             LocalizationModel.ProgramName = Ukraine.ProgramName;
             LocalizationModel.PaperFormat = Ukraine.PaperFromat;
-
-
         }
-
     }
 }

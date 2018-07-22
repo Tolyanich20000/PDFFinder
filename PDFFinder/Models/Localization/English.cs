@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PDFFinder.Models.Localization
 {
-  public static  class English
+    public static class English
     {
         public static string Apply = "Apply";
         public static string Duplex = "Duplex";
@@ -16,8 +16,5 @@ namespace PDFFinder.Models.Localization
         public static string FileName = "File Name";
         public static string LabelSettings = "Settings";
         public static string DocumentSettings = "Document Settings";
-
-
-
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PDFFinder.Models.Localization
 {
-   public static class Ukraine
+    public static class Ukraine
     {
         public static string Apply = "Підтвердити";
         public static string Duplex = "Дуплекс";
@@ -16,8 +16,5 @@ namespace PDFFinder.Models.Localization
         public static string FileName = "Ім`я Файлу";
         public static string LabelSettings = "Налаштування";
         public static string DocumentSettings = "Налаштування Файлу";
-
-
-
     }
 }

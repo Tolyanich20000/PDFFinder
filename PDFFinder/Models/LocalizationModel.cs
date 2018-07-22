@@ -9,7 +9,6 @@ namespace PDFFinder.Models
 {
     public class LocalizationModel:INotifyPropertyChanged
     {
-
         private string _apply;
         private string _duplex;
         private string _filename;
@@ -18,7 +17,6 @@ namespace PDFFinder.Models
         private string _printername ;
         private string _programname;
         private string _documentSetiings;
-
 
         public string Apply
         {
@@ -32,9 +30,8 @@ namespace PDFFinder.Models
                     OnPropertyChanged("Apply");
                 }
             }
-
-
         }
+
         public string Duplex
         {
             get { return _duplex; }
@@ -48,6 +45,7 @@ namespace PDFFinder.Models
                 }
             }
         }
+
         public string FileName
         {
             get { return _filename; }
@@ -59,10 +57,9 @@ namespace PDFFinder.Models
                     _filename = value;
                     OnPropertyChanged("FileName");
                 }
-
-
             }
         }
+
         public string LabelSettings
         {
             get { return _labelsetitings; }
@@ -75,6 +72,7 @@ namespace PDFFinder.Models
                 }
             }
         }
+
         public string PaperFormat
         {
             get { return _paperFormat; }
@@ -87,6 +85,7 @@ namespace PDFFinder.Models
                 }
             }
         }
+
         public string PrinterName
         {
             get { return _printername; }
@@ -99,6 +98,7 @@ namespace PDFFinder.Models
                 }
             }
         }
+
         public string ProgramName
         {
             get { return _programname; }
@@ -111,9 +111,8 @@ namespace PDFFinder.Models
                     OnPropertyChanged("ProgramName");
                 }
             }
-
-
         }
+
         public string DocumentSettings
         {
             get { return _documentSetiings; }
@@ -125,16 +124,12 @@ namespace PDFFinder.Models
                     OnPropertyChanged("DocumentSettings");
                 }
             }
-
-
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-
         private void OnPropertyChanged(string prop = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
-
     }
 }
