@@ -81,6 +81,9 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="TallComponents.PDF.Rasterizer, Version=3.0.172.0, Culture=neutral, PublicKeyToken=76bf2dedaa68ccb5, processorArchitecture=MSIL">
+      <HintPath>..\packages\TallComponents.PDFRasterizer.3.0.172\lib\net40\TallComponents.PDF.Rasterizer.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />

@@ -16,6 +16,10 @@ namespace PDFFinder.ViewModel
     using PDFFinder.Commands;
     using Microsoft.Win32;
     using iTextSharp.text;
+    using System.Windows.Controls;
+    using System.Windows.Documents;
+    using TallComponents.PDF.Rasterizer;
+using TallComponents.PDF.Rasterizer.Configuration;
 
     public class MainWindowViewModel : INotifyPropertyChanged
     {
@@ -92,7 +96,37 @@ namespace PDFFinder.ViewModel
 
         private void ApplyMethod(object param)
         {
-            MessageBox.Show("do something");
+            
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                DefaultExt = ".pdf",
+                Filter = "PDF files (*.pdf)|*.pdf|All files (*.*)|*.*"
+            };
+            bool? fileOpenResult = openFileDialog.ShowDialog();
+            if (fileOpenResult != true)
+            {
+                return;
+            }
+            PrintDialog printDialog = new PrintDialog();
+            printDialog.PageRangeSelection = PageRangeSelection.AllPages;
+            printDialog.UserPageRangeEnabled = true;
+            bool? doPrint = printDialog.ShowDialog();
+            if (doPrint != true)
+            {
+                return;
+            }
+            FixedDocument fixedDocument;
+            using (FileStream pdfFile = new FileStream(openFileDialog.FileName, FileMode.Open, FileAccess.Read))
+            {
+                TallComponents.PDF.Rasterizer.Document document = new TallComponents.PDF.Rasterizer.Document(pdfFile);
+                RenderSettings renderSettings = new RenderSettings();
+                ConvertToWpfOptions renderOptions = new ConvertToWpfOptions { ConvertToImages = false };
+                renderSettings.RenderPurpose = RenderPurpose.Print;
+                renderSettings.ColorSettings.TransformationMode = ColorTransformationMode.HighQuality;
+               
+                fixedDocument = document.ConvertToWpf(renderSettings, renderOptions);
+            }
+            printDialog.PrintDocument(fixedDocument.DocumentPaginator, "Print");
         }
 
         private bool ApplyPredicate(object param)
