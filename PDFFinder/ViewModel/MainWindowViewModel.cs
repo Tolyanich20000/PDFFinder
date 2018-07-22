@@ -19,7 +19,7 @@ namespace PDFFinder.ViewModel
     using System.Windows.Controls;
     using System.Windows.Documents;
     using TallComponents.PDF.Rasterizer;
-using TallComponents.PDF.Rasterizer.Configuration;
+    using TallComponents.PDF.Rasterizer.Configuration;
 
     public class MainWindowViewModel : INotifyPropertyChanged
     {
