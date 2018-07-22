@@ -4,11 +4,5 @@
              xmlns:local="clr-namespace:PDFFinder"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <!--<ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="ENG.xaml"/>
-                <ResourceDictionary Source="UA.xaml"/>
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>-->
     </Application.Resources>
 </Application>

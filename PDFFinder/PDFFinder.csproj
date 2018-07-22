@@ -158,16 +158,6 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Properties\Resources.uk-UA.Designer.cs">
-      <DependentUpon>Resources.uk-UA.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -188,10 +178,6 @@
     <EmbeddedResource Include="Migrations\201807011013277_Initial9.resx">
       <DependentUpon>201807011013277_Initial9.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.uk-UA.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.uk-UA.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804221252460_Initial4.resx">
       <DependentUpon>201804221252460_Initial4.cs</DependentUpon>
     </EmbeddedResource>
@@ -203,10 +189,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804271554592_Initial7.resx">
       <DependentUpon>201804271554592_Initial7.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
