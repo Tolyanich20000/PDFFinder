@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using iTextSharp.text.pdf;
+using PDFFinder.Models.Localization;
 
 namespace PDFFinder.ViewModel
 {
@@ -23,6 +24,20 @@ namespace PDFFinder.ViewModel
         private readonly UnitOfWork _unitOfWork = new UnitOfWork();
         private PdfReader _pdfReader;
         private Models.Document _document;
+        private LocalizationModel _localizationModel;
+
+        public LocalizationModel LocalizationModel
+        {
+            get { return _localizationModel; }
+            set
+            {
+                if (_localizationModel != value)
+                {
+                    _localizationModel = value;
+                    OnPropertyChanged("LocalizationModel");
+                }
+            }
+        }
 
         public Models.Document Document
         {
@@ -45,12 +60,21 @@ namespace PDFFinder.ViewModel
 
         public DelegateCommand Open { get; set; }
 
+        public DelegateCommand Eng { get; set; }
+        public DelegateCommand Ua { get; set; }
+
         public MainWindowViewModel()
         {
+
+
+            LocalizationModel = new LocalizationModel();
+            EnableEnglish(null);
             GetPrinters();
             GetPaperFormats();
             Apply = new DelegateCommand(ApplyMethod, ApplyPredicate);
             Open = new DelegateCommand(OpenDocumentMethod, (object param)=> { return true; });
+            Eng = new DelegateCommand(EnableEnglish, (object param) => { return true; });
+            Ua = new DelegateCommand(EnableUkrain, (object param) => { return true; });
             if (!_unitOfWork.PaperFormatRepository.GetAll().Any())
             {
                 FillPageSize();
@@ -60,6 +84,7 @@ namespace PDFFinder.ViewModel
                 Document = new Models.Document();
                 OpenDocument(App.path);
             }
+
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -153,5 +178,32 @@ namespace PDFFinder.ViewModel
                 Formats.Add(item);
             }
         }
+        public void EnableEnglish(object param)
+        {
+            LocalizationModel.Apply = English.Apply;
+            LocalizationModel.DocumentSettings = English.DocumentSettings;
+            LocalizationModel.Duplex = English.Duplex;
+            LocalizationModel.FileName = English.FileName;
+            LocalizationModel.LabelSettings = English.LabelSettings;
+            LocalizationModel.PrinterName = English.PrinterName;
+            LocalizationModel.ProgramName = English.ProgramName;
+            LocalizationModel.PaperFormat = English.PaperFromat;
+
+
+        }
+        public void EnableUkrain(object param)
+        {
+            LocalizationModel.Apply = Ukraine.Apply;
+            LocalizationModel.DocumentSettings = Ukraine.DocumentSettings;
+            LocalizationModel.Duplex = Ukraine.Duplex;
+            LocalizationModel.FileName = Ukraine.FileName;
+            LocalizationModel.LabelSettings = Ukraine.LabelSettings;
+            LocalizationModel.PrinterName = Ukraine.PrinterName;
+            LocalizationModel.ProgramName = Ukraine.ProgramName;
+            LocalizationModel.PaperFormat = Ukraine.PaperFromat;
+
+
+        }
+
     }
 }

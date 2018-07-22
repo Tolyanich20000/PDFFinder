@@ -95,7 +95,6 @@
     </ApplicationDefinition>
     <Compile Include="Commands\DelegateCommand.cs" />
     <Compile Include="DataBaseContext\PaperFormatRepository.cs" />
-    <Compile Include="Localiztion\Words.cs" />
     <Compile Include="Migrations\201806030956469_Initial8.cs" />
     <Compile Include="Migrations\201806030956469_Initial8.Designer.cs">
       <DependentUpon>201806030956469_Initial8.cs</DependentUpon>
@@ -104,6 +103,9 @@
     <Compile Include="Migrations\201807011013277_Initial9.Designer.cs">
       <DependentUpon>201807011013277_Initial9.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\LocalizationModel.cs" />
+    <Compile Include="Models\Localization\English.cs" />
+    <Compile Include="Models\Localization\Ukraine.cs" />
     <Compile Include="Models\PaperFormat.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Page Include="MainWindow.xaml">
